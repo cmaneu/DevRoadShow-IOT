@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<title>DevKit State</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/vue.min.js"></script>
+<script src="js/vue-resource.min.js"></script>
+</head>
+<body>
+<div class="devkit" id="devkit" v-cloak>
+    <div class="wifi"></div>
+    <div class="headphone"></div>
+    <div class="mic"></div>
+    <div class="audio"></div>
+    <div class="irda"></div>
+    <div class="usb">
+        <div class="edge"></div>
+    </div>
+    <div class="link">
+        <div class="pins"></div>
+    </div>
+    <div class="reset"></div>
+    <div class="oled"></div>
+    <div class="btn btn_a"></div>
+    <div class="btn btn_b"></div>
+    <div class="security"></div>
+    <div class="motion">
+        <div class="pins"></div>
+    </div>
+    <div class="mag"></div>
+    <div class="pressure"></div>
+    <div class="ht"></div>
+    <div class="user_led" v-bind:class="{on: userLEDState === 1}" v-on:click="updateUserLEDState()"></div>
+    <div class="rgb_led" v-bind:class="{on: rgbLEDState === 1}" v-bind:style="ledStyle" v-on:click="updateRgbLEDState()"></div>
+    <div class="info" v-show="lastUpdated !== ''">
+        <div class="wifi_state">
+            <p>WiFi SSID: {{ reportedTwin.wifiSSID || 'N/A' }}</p>
+            <p>WiFi RSSI: {{ reportedTwin.wifiRSSI || 'N/A' }}</p>
+            <p>WiFi IP: {{ reportedTwin.wifiIP || 'N/A' }}</p>
+            <p>WiFi Mask: {{ reportedTwin.wifiMask || 'N/A' }}</p>
+            <p>MAC Addr: {{ reportedTwin.macAddress || 'N/A' }}</p>
+        </div>
+        <div class="irda_state">
+            <p>IrDA: {{ reportedTwin.sensorIrda === 1 ? 'Working' : 'Down' }}</p>
+        </div>
+        <div class="motion_state">
+            <p>Motion Sensor: {{ reportedTwin.sensorMotion === 1 ? 'Working' : 'Down' }}</p>
+        </div>
+        <div class="mag_state">
+            <p>Magnetometer Sensor: {{ reportedTwin.sensorMagnetometer === 1 ? 'Working' : 'Down' }}</p>
+        </div>
+        <div class="pressure_state">
+            <p>Pressure Sensor: {{ reportedTwin.sensorPressure === 1 ? 'Working' : 'Down' }}</p>
+        </div>
+        <div class="ht_state">
+            <p>Humidity &amp; Temperature Sensor: {{ reportedTwin.sensorHumidityAndTemperature === 1 ? 'Working' : 'Down' }}</p>
+        </div>
+        <div class="firmware_version">
+            <p>Device ID: {{ deviceId }}</p>
+            <p>Firmware Version:</p>
+            <p>{{ reportedTwin.firmwareVersion }}</p>
+            <p>Last Updated:</p>
+            <p>{{ lastUpdated }}</p>
+        </div>
+        <div class="user_led_state">
+            <p>User LED: {{ userLEDState === 1 ? 'On' : 'Off' }}</p>
+        </div>
+        <div class="rgb_led_state">
+            <div class="inner">
+                <p>RGB LED: {{ rgbLEDState === 1 ? 'On' : 'Off' }}</p>
+                <div class="rgb_controller">R: 
+                    <div class="bar">
+                        <div><div v-bind:style="{width: (rgbColor.r / 255 * 96) + 'px'}"></div></div>
+                        <input type="range" min="0" max="255" v-model="rgbColor.r" v-on:change="updateRgbLEDColor"/>
+                    </div>
+                </div>
+                <div class="rgb_controller">G: 
+                    <div class="bar">
+                        <div><div v-bind:style="{width: (rgbColor.g / 255 * 96) + 'px'}"></div></div>
+                        <input type="range" min="0" max="255" v-model="rgbColor.g" v-on:change="updateRgbLEDColor"/>
+                    </div>
+                </div>
+                <div class="rgb_controller">B: 
+                    <div class="bar">
+                        <div><div v-bind:style="{width: (rgbColor.b / 255 * 96) + 'px'}"></div></div>
+                        <input type="range" min="0" max="255" v-model="rgbColor.b" v-on:change="updateRgbLEDColor"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="connection_status" v-show="loading">
+        <p>Loading...</p>
+    </div>
+    <div class="inpt_box" v-show="!functionAppNameSet">
+        <input type="text" spellcheck="false" v-model="functionAppName" placeholder="Function App Name"><button v-on:click="getState()">Connect</button>
+    </div>
+    <iframe id="user_led_update" name="user_led_update" :src="stateUpdateEndpoint"></iframe>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

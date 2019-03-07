@@ -1,0 +1,904 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/Press-Start-2P-Regular.woff2) format('woff2');
+  }
+
+[v-cloak] {
+    display: none;
+}
+
+::-webkit-input-placeholder {
+    color: green;
+}
+:-moz-placeholder {
+    color: green;
+    opacity: 1;
+}
+::-moz-placeholder {
+    color: green;
+    opacity: 1;
+}
+:-ms-input-placeholder {
+    color: green;
+}
+::-ms-input-placeholder {
+    color: green;
+}
+
+::selection {
+    background: green;
+    color: black;
+}
+
+body {
+    background: black;
+    color: green;
+    font-size: 8px;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+    text-shadow: 1px 0 black, 0 1px black, -1px 0 black, 0 -1px black,
+                 1px 1px black, -1px 1px black, -1px -1px black, 1px -1px black,
+                 2px 0 black, 0 2px black, -2px 0 black, 0 -2px black;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+.devkit {
+    width: 320px;
+    height: 480px;
+    border: green 1px solid;
+    border-radius: 19px;
+    position: absolute;
+    left: 50%;
+    margin-left: -160px;
+    top: 50%;
+    margin-top: -240px;
+}
+
+.devkit .wifi {
+    width: 30%;
+    height: 40%;
+    position: absolute;
+    left: 6%;
+    top: 0;
+    border: green 1px solid;
+}
+
+.devkit .wifi:before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 0;
+    height: 10%;
+    width: 55%;
+    border-top: green 1px solid;
+    border-right: green 1px solid;
+}
+
+.devkit .wifi:after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 54%;
+    width: 46%;
+    border-top: green 1px solid;
+}
+
+.devkit .headphone {
+    width: 10%;
+    height: 15%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    border: green 1px solid;
+}
+
+.devkit .mic {
+    width: 9%;
+    height: 6%;
+    position: absolute;
+    left: 45.5%;
+    top: 21%;
+    border: green 1px solid;
+    border-radius: 50%;
+}
+
+.devkit .audio {
+    width: 7%;
+    height: 4.67%;
+    position: absolute;
+    left: 46.5%;
+    top: 33%;
+    border: green 1px solid;
+    transform-origin: 50% 50%;
+    transform:rotate(45deg);
+}
+
+.devkit .audio:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 140%;
+    width: 40%;
+    height: 40%;
+    border: green 1px solid;
+    border-radius: 50%;
+}
+
+.devkit .audio:after {
+    content: "";
+    position: absolute;
+    left: 140%;
+    bottom: 0;
+    width: 40%;
+    height: 40%;
+    border: green 1px solid;
+    border-radius: 50%;
+}
+
+.devkit .irda {
+    width: 5%;
+    height: 1%;
+    position: absolute;
+    left: 68%;
+    top: 2%;
+    border: green 1px solid;
+}
+
+.devkit .usb {
+    width: 12%;
+    height: 7%;
+    position: absolute;
+    left: 80%;
+    top: 0;
+    border: green 1px solid;
+    border-bottom: none;
+}
+
+.devkit .usb:before {
+    content: "";
+    position: absolute;
+    width: 10%;
+    padding-top: 20%;
+    border: green 1px solid;
+    left: 20%;
+    top: 20%;
+}
+
+.devkit .usb:after {
+    content: "";
+    position: absolute;
+    width: 10%;
+    padding-top: 20%;
+    border: green 1px solid;
+    left: 70%;
+    top: 20%;
+}
+
+.devkit .usb .edge {
+    position: absolute;
+    width: 60%;
+    height: 20%;
+    bottom: 0;
+    left: 20%;
+    border: green 1px solid;
+    border-bottom: none;
+}
+
+.devkit .usb .edge:before {
+    content: "";
+    position: absolute;
+    width: 40%;
+    left: -40%;
+    bottom: 0;
+    border-top: green 1px solid;
+}
+
+.devkit .usb .edge:after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    right: -40%;
+    bottom: 0;
+    border-top: green 1px solid;
+}
+
+.devkit .link {
+    width: 12%;
+    height: 8%;
+    position: absolute;
+    top: 30%;
+    left: 75%;
+    border: green 1px solid;
+    border-radius: 5%;
+}
+
+.devkit .link:before {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 90%;
+    left: -20%;
+    top: 5%;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 10%;
+    background-repeat: repeat-y;
+}
+
+.devkit .link:after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 90%;
+    right: -20%;
+    top: 5%;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 10%;
+    background-repeat: repeat-y;
+}
+
+.devkit .link .pins {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.devkit .link .pins:before {
+    content: "";
+    position: absolute;
+    height: 20%;
+    width: 90%;
+    top: -20%;
+    left: 5%;
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 10% 100%;
+    background-repeat: repeat-x;
+}
+
+.devkit .link .pins:after {
+    content: "";
+    position: absolute;
+    height: 20%;
+    width: 90%;
+    bottom: -20%;
+    left: 5%;
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 10% 100%;
+    background-repeat: repeat-x;
+}
+
+.devkit .reset {
+    width: 3%;
+    height: 2%;
+    position: absolute;
+    left: 93%;
+    top: 20%;
+    border: green 1px solid;
+    border-radius: 50%;
+}
+
+.devkit .oled {
+    width: 60%;
+    height: 25%;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    border: green 1px solid;
+}
+
+.devkit .oled:before {
+    content: "";
+    width: 90%;
+    padding-top: 45%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border: green 1px solid;
+}
+
+.devkit .btn {
+    width: 9%;
+    height: 6%;
+    position: absolute;
+    top: 57%;
+    border: green 1px solid;
+    border-radius: 10%;
+}
+
+.devkit .btn:before {
+    content: "";
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    border: green 1px solid;
+    border-radius: 50%;
+}
+
+.devkit .btn_a {
+    left: 6%;
+}
+
+.devkit .btn_b {
+    right: 6%;
+}
+
+.devkit .security {
+    width: 6%;
+    height: 6%;
+    position: absolute;
+    top: 82%;
+    left: 22%;
+    border: green 1px solid;
+}
+
+.devkit .security:before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 25%;
+    background-repeat: repeat-y;
+}
+
+.devkit .security:after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    right: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 25%;
+    background-repeat: repeat-y;
+}
+
+.devkit .motion {
+    width: 6%;
+    height: 3%;
+    position: absolute;
+    top: 85%;
+    left: 40%;
+    border: green 1px solid;
+}
+
+.devkit .motion:before {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    left: -20%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 25%;
+    background-repeat: repeat-y;
+}
+
+.devkit .motion:after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    right: -20%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 25%;
+    background-repeat: repeat-y;
+}
+
+.devkit .motion .pins {
+    position: absolute;
+    height: 20%;
+    width: 60%;
+    top: -20%;
+    left: 20%;
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 33.33% 100%;
+    background-repeat: repeat-x;
+}
+
+.devkit .mag {
+    width: 4%;
+    height: 2.5%;
+    position: absolute;
+    top: 85.5%;
+    left: 58%;
+    border: green 1px solid;
+}
+
+.devkit .mag:before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 20%,
+        green 20%,
+        green 80%,
+        transparent 80%,
+        transparent
+    );
+    background-size: 100% 25%;
+    background-repeat: repeat-y;
+}
+
+.devkit .mag:after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    right: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 20%,
+        green 20%,
+        green 80%,
+        transparent 80%,
+        transparent
+    );
+    background-size: 100% 25%;
+    background-repeat: repeat-y;
+}
+
+.devkit .pressure {
+    width: 4%;
+    height: 2.5%;
+    position: absolute;
+    top: 85.5%;
+    left: 74%;
+    border: green 1px solid;
+}
+
+.devkit .pressure:before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    left: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 20%,
+        green 20%,
+        green 80%,
+        transparent 80%,
+        transparent
+    );
+    background-size: 100% 50%;
+    background-repeat: repeat-y;
+}
+
+.devkit .pressure:after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    right: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 20%,
+        green 20%,
+        green 80%,
+        transparent 80%,
+        transparent
+    );
+    background-size: 100% 50%;
+    background-repeat: repeat-y;
+}
+
+.devkit .ht {
+    width: 4%;
+    height: 2.5%;
+    position: absolute;
+    top: 85.5%;
+    left: 90%;
+    border: green 1px solid;
+}
+
+.devkit .ht:before {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    left: -20%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 100%;
+    background-repeat: repeat-y;
+}
+
+.devkit .ht:after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    right: -20%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 100%;
+    background-repeat: repeat-y;
+}
+
+.devkit .info {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.devkit .info p {
+    margin: 1px;
+    white-space: nowrap;
+}
+
+.devkit .info .wifi_state {
+    position: absolute;
+    bottom: 65%;
+    right: 71%;
+    padding: 1%;
+    padding-right: 10%;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .irda_state {
+    position: absolute;
+    bottom: 90%;
+    left: 70%;
+    padding: 1%;
+    padding-top: 5%;
+    padding-left: 24%;
+    border-left: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .motion_state {
+    position: absolute;
+    bottom: 9%;
+    right: 57%;
+    padding: 1%;
+    padding-top: 0;
+    padding-right: 26%;
+    border-right: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .mag_state {
+    position: absolute;
+    bottom: 4%;
+    right: 40%;
+    padding: 1%;
+    padding-top: 7%;
+    padding-right: 28%;
+    border-right: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .pressure_state {
+    position: absolute;
+    bottom: 4%;
+    left: 76%;
+    padding: 1%;
+    padding-top: 7%;
+    padding-left: 22%;
+    border-left: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .ht_state {
+    position: absolute;
+    bottom: 9%;
+    left: 92%;
+    padding: 1%;
+    padding-top: 0;
+    padding-left: 6%;
+    border-left: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .firmware_version {
+    position: absolute;
+    bottom: 35%;
+    left: 26%;
+}
+
+.devkit .connection_status {
+    position: absolute;
+    bottom: 36%;
+    left: 26%;
+}
+
+.devkit .inpt_box {
+    width: 600px;
+    height: 100px;
+    border: green 1px solid;
+    background: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -300px;
+    box-shadow: 0 0 0 3px black;
+}
+
+.devkit .inpt_box input {
+    border: green 1px solid;
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    position: absolute;
+    background: black;
+    color: green;
+    font-size: 8px;
+    font-family: 'Press Start 2P', cursive;
+    left: 50px;
+    top: 30px;
+    outline: none;
+}
+
+.devkit .inpt_box button {
+    border: green 1px solid;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    background: black;
+    color: green;
+    font-size: 8px;
+    font-family: 'Press Start 2P', cursive;
+    right: 50px;
+    top: 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+.devkit .user_led {
+    width: 12%;
+    height: 8%;
+    position: absolute;
+    top: 70%;
+    left: 84%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.devkit .user_led:before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    top: 40%;
+    left: 25%;
+    border: green 1px solid;
+}
+
+.devkit .user_led.on:before {
+    background: green;
+}
+
+.devkit .info .user_led_state {
+    position: absolute;
+    bottom: 22%;
+    left: 90%;
+    padding: 1%;
+    padding-top: 0;
+    padding-left: 8%;
+    border-left: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+#user_led_update {
+    position: absolute;
+    width: 1;
+    height: 1;
+    opacity: 0;
+}
+
+.devkit .rgb_led {
+    left: 7.7%;
+    width: 5%;
+    height: 3.3%;
+    position: absolute;
+    top: 71%;
+    border: green 1px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.devkit .rgb_led:before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 50%;
+    background-repeat: repeat-y;
+}
+
+.devkit .rgb_led:after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    right: -30%;
+    top: 0;
+    background-image: linear-gradient(
+        transparent,
+        transparent 40%,
+        green 40%,
+        green 60%,
+        transparent 60%,
+        transparent
+    );
+    background-size: 100% 50%;
+    background-repeat: repeat-y;
+}
+
+.devkit .rgb_led.on {
+    background: green;
+}
+
+.devkit .info .rgb_led_state {
+    position: absolute;
+    bottom: 22%;
+    left: -44%;
+    height: 16px;
+    width: 173px;
+    padding: 1%;
+    padding-top: 0;
+    border-right: green 1px dashed;
+    border-bottom: green 1px dashed;
+}
+
+.devkit .info .rgb_led_state .inner {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.rgb_controller {
+    height: 20px;
+    line-height: 20px;
+    padding: 1px;
+}
+
+.rgb_controller .bar {
+    position: relative;
+    display: inline-block;
+    height: 10px;
+    width: 100px;
+    vertical-align: top;
+    top: 5px;
+}
+
+.rgb_controller .bar input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.rgb_controller .bar > div {
+    height: 10px;
+    width: 100px;
+    border: 1px solid green;
+    box-sizing: border-box;
+}
+
+.rgb_controller .bar > div > div {
+    height: 6px;
+    width: 20px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background: green;
+}

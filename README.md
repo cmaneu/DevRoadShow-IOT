@@ -201,7 +201,21 @@ Nous en avons pour l'instant fini avec IoT Hub, mais nous reviendrons plus tard 
 
 ### Créer un App Service pour son site web
 
+Nous allons plus tard réaliser une application web afin de piloter notre carte à distance. Pour l'héberger, le plus simple est de créer une *Web App**. Ce service se charge pour vous de déployer un site web, ainsi que le langage que vous utilisez: PHP, Ruby, Python, NodeJS, .Net ou Java. Il ne vous reste plus qu'à déployer votre code.*
+
+Lors de l'étape de création, pensez bien à sélectionner un site
+
+![Video - Création d'un site web](docs/media/creation-website.gif)
+
+> Lors de cette application, nous allons automatiquement créer un _App Service Plan_, c'est l'infrastructure qui hébergera votre site. Tout comme il existe des "plans" côté IoT Hub, il y en a pour les App Services, et l'un d'entre eux est gratuit. Il n'est pas sélectionné par défaut, mais vous pouvez le personnaliser et ainsi héberger un petit site pour vos prototypes entièrement gratuitement ;)
+
 ### Créer une Azure Function
+
+Notre site web sera simplement un "Front HTML". Il lui faudra communiquer avec l'IoT Hub, et pour cela utiliser un _secret_. Afin de protéger ce secret et de limiter ce qu'il est possible de faire, nous allons créer une API contenant cette logique et ce secret. Nous pourrions l'héberger dans un site web - comme celui que nous avons créé il y a quelques instants - mais Azure Functions est un service intéressant pour cet usage : il vous permet d'héberger non pas un site web, mais simplement une méthode de code !
+
+Lors de la création, il vous faudra indiquer un nom et un emplacement. Hormis ces informations et le groupe de ressources, laissez tous les autres paramètres à leurs valeurs par défaut.
+
+![Video - Création d'une Azure Function](docs/media/creation-function.gif)
 
 ## Déployez du code sur votre board et connectez-là à Azure
 
@@ -248,6 +262,6 @@ A compléter
 [arduino-ide]: https://www.arduino.cc/en/Main/Software
 [azurepass]: https://www.microsoftazurepass.com/?wt.mc_id=devroadshowiot-github-chmaneu
 [azure-portal]: https://portal.azure.com/?feature.customportal=false&wt.mc_id=devroadshowiot-github-chmaneu
-[azure-free-trial](https://azure.microsoft.com/en-us/free/?wt.mc_id=devroadshowiot-github-chmaneu)
+[azure-free-trial]: https://azure.microsoft.com/en-us/free/?wt.mc_id=devroadshowiot-github-chmaneu
 [docs-azcli]: https://docs.microsoft.com/fr-fr/cli/azure/?view=azure-cli-latest&wt.mc_id=devroadshowiot-github-chmaneu
 [docs-deviceprov]: https://docs.microsoft.com/fr-fr/azure/iot-dps/?wt.mc_id=devroadshowiot-github-chmaneu

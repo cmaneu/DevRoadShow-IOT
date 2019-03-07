@@ -113,7 +113,7 @@ Enfin il faudra ajouter le SDK spécifique pour la board Arduino MXChip. Pour ce
 
 Afin de réaliser cet atelier, vous aurez besoin d'une souscription Azure. Il y a plusieurs moyens d'en obtenir une: 
 
-- Créer une souscription d'essai,
+- Créer un [abonnement d'essai][azure-free-trial],
 - Si vous lisez cet atelier durant le Roadshow, vous pouvez utiliser l'Azure Pass que nous vous fournissons,
 - Ou si vous êtes abonnés MSDN, utiliser les crédits offerts par votre abonnement.
 
@@ -143,28 +143,83 @@ visite et de vous familiariser avec l'interface du portail Azure.
 
 ## Configurez votre board
 
-Choisir le port COM
 A compléter
+- Connecter au WiFi
+- Choisir le port COM dans VSC
+- Utiliser l'émualteur
 
 ## Créer vos services (ressources) dans Azure
 
-A compléter
+Nous allons maintenant utiliser le [portail Azure][azure-portal] afin de créer l'ensemble des services dans Azure - appelée _ressources_. Si vous êtes plus bash que clic, vous pouvez utiliser la [Azure CLI][docs-azcli] (on vous laisse chercher comment faire ;). 
 
-- Créer un resource group
-- Créer un IoT Hub
-- Créer un IoT Device
-- Créer un App Service pour son site web
-- Créer une Azure Function
+### Créer un resource group
+
+Nous allons commencer par créer un groupe de ressources (_resource group_). C'est un conteneur logique pour l'ensemble des services que vous allez créer ensuite. Chaque service doit absolument être dans un resource group.
+
+Depuis le portail Azure, vous avez trois moyens de créer une nouvelle ressource : 
+
+- Le bouton **Créer une ressource** en haut à gauche,
+- Naviguer vers un type de service, puis cliquer sur le bouton **Ajouter**
+- Depuis la page du groupe de ressources, cliquer sur le bouton **Ajouter**
+
+La vidéo suivante vous montre comment créer votre premier groupe de ressources. Le nom du groupe de ressource doit être unique au sein de votre compte Azure. Pour ce qui est de la région, nous choisirons tout au long de cet atelier _Europe Occidentale_ ou _West Europe_.
+
+![Video - Création d'un ressource group](docs/media/creation-rg.gif)
+
+Une fois créé, vous pouvez vous rendre sur la page de la ressource via l'icône de notifications en haut.
+
+### Créer un IoT Hub
+
+L'IoT Hub est un service qui vous permet de gérer la connexion entre vos devices IoT et vos services hébergés sur Azure (ou ailleurs). Plus concrètement, il vous permet : 
+
+- D'identifier et de recevoir des données de vos périphériques IoT - on appelle cela le _Device To Cloud_,
+- D'envoyer ces données à différents applicatifs,
+- De transmettre des commandes ou des données du cloud vers vos périphériques - c'est le _Cloud To _Device_, 
+- De mettre à jour les micrologiciels à distance de vos périphériques, voire de déployer du code à distance.
+
+La vidéo suivante nous montre comment créer un nouveau IoT Hub. Choisissez bien le groupe de ressources créé à l'étap précédente, puis choisissez la région (Europe occidentale) puis un nom.
+
+> Comme beaucoup de ressources dans Azure, leur nom devient une partie d'une adresse Internet - ici `monhub.chris-ioth.azure-devices.net`. Il doit donc être unique à tous les utilisateurs d'Azure !
+
+A l'étape d'après, vous serez amené à choisir un niveau de tarification (_tier_) et une mise à l'échelle. Pour cet atelier, nous choisirons la taille **S1: Niveau Standard**.
+
+> Il existe à aujourd'hui trois tiers. Le tiers gratuit est limité en nombre de messages, alors que le tiers basique ne dispose pas des fonctionnalités _Cloud to Device_ ou _Device Twins_ que nous allons utiliser plus loin. Le nombre d'unités permet quand à lui de supporter un plus grand nombre de périphériques IoT.
+
+![Video - Création d'un IoT Hub](docs/media/creation-iothub.gif)
+
+### Créer un IoT Device
+
+Au sein du IoT Hub, chacun de vos périphériques IoT se doit d'être déclaré afin de pouvoir le gérer et accepter des données. Pour cet atelier simple, nous allons ajouter le périphérique à la main. Si nous avions à déployer des milliers de périphériques, il y a bien évidemment [une solution][docs-deviceprov] :)
+
+La création d'un device IoT dans le portail est assez simple. Naviguez jusqu'à l'onglet **Appareils IoT**, puis cliquez sur **Ajouter**. Vous avez alors simplement à donner un nom à votre périphérique.
+
+![Video - Création d'un périphérique IoT Hub](docs/media/creation-iotdevice.gif)
+
+Lorsque vous vous rendez sur l'écran de votre appareil IoT, vuos verrez alors deux clés : **Ce sont elles qui permettent de sécuriser la connexion entre votre appareil et Azure**. Il est important **de ne pas les diffuser ou les mettre dans votre code source (ou repository Github)**. Nous verrons plus tard comment la déployer sur la carte.
+
+Nous en avons pour l'instant fini avec IoT Hub, mais nous reviendrons plus tard sur cette partie.
+
+### Créer un App Service pour son site web
+
+### Créer une Azure Function
 
 ## Déployez du code sur votre board et connectez-là à Azure
 
 A compléter
 
-## Déployez votre fonction dans Azure
+- Déployer le code
+- Configurer IoT Hub Connection string
+- Tester avec le device twin dans le portail
+
+## Créer une interface utilisateur 
 
 A compléter
 
-## Déployez votre interface utilisateur dans Azure
+### Créer une Azure Function pour communiquer avec IoT Hub
+
+A compléter
+
+### Déployez votre interface utilisateur dans Azure
 
 A compléter
 
@@ -186,9 +241,13 @@ A compléter
 [azure-home]: https://azure.microsoft.com/fr-fr/?wt.mc_id=devroadshowiot-github-chmaneu
 [mxchip]: https://aka.ms/iot-devkit?wt.mc_id=devroadshowiot-github-chmaneu
 [mxchip-buy]: https://aka.ms/iot-devkit-purchase?wt.mc_id=devroadshowiot-github-chmaneu
-[vscode-iottoolsext]: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
-[vscode-arduinoext]: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino
-[vscode-azureext]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[vscode-csharpext]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+[vscode-iottoolsext]: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools&wt.mc_id=devroadshowiot-github-chmaneu
+[vscode-arduinoext]: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino&wt.mc_id=devroadshowiot-github-chmaneu
+[vscode-azureext]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack&wt.mc_id=devroadshowiot-github-chmaneu
+[vscode-csharpext]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&wt.mc_id=devroadshowiot-github-chmaneu
 [arduino-ide]: https://www.arduino.cc/en/Main/Software
 [azurepass]: https://www.microsoftazurepass.com/?wt.mc_id=devroadshowiot-github-chmaneu
+[azure-portal]: https://portal.azure.com/?feature.customportal=false&wt.mc_id=devroadshowiot-github-chmaneu
+[azure-free-trial](https://azure.microsoft.com/en-us/free/?wt.mc_id=devroadshowiot-github-chmaneu)
+[docs-azcli]: https://docs.microsoft.com/fr-fr/cli/azure/?view=azure-cli-latest&wt.mc_id=devroadshowiot-github-chmaneu
+[docs-deviceprov]: https://docs.microsoft.com/fr-fr/azure/iot-dps/?wt.mc_id=devroadshowiot-github-chmaneu

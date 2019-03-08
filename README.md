@@ -291,8 +291,24 @@ A compléter
 
 ### Créer une Azure Function pour communiquer avec IoT Hub
 
-A compléter
-Dans le fichier `State.cs`, à la ligne 22 remplacez la référence_ChrisMX_ par celle du nom du device IoT créé au début de l'atelier.
+1. Lancez la commande **Azure Functions: Create new project**,
+2. Sélectionnez un répertoire,
+3. Choisissez le langage C#,
+4. Sélectionnez la runtime **Azure Functions v2**
+5. Ajoutez le projet a votre workspace courant
+
+> Si vous êtes plus à l'aise avec Python ou avec NodeJS, vous devriez pouvoir porter le code avec les SDKs correspondants. Mais dites-le nous avant de vous lancer!
+
+Vous pouvez maintenant copier le code C# de ce repository GitHub dans votre dossier de travail.
+
+Dans le fichier `State.cs`, à la ligne 22, il vous faudra remplacer la référence _ChrisMX_ par celle du nom du device IoT créé au début de l'atelier.
+
+Enfin pour déployer le code de votre fonction, faites un clic-droit sur le dossier de votre projet fonction, et cliquez sur **Deploy to Function App**. Vous pourrez alors choisir la souscription, puis l'application fonction que vous aviez créé tout au début. 
+
+### Le moment de vérité !
+
+Lancez le fichier index.html qui est dans le dossier `src/web`, puis indiquez le nom de votre IoT Hub. 
+Si tout se passe bien, vous devriez voir le status de votre carte, et en cliquant sur le bouton "RGB LED", la LED de votre carte devrait s'allumer !
 
 ## Ajoutez le support du changement de couleur de la LED
 
@@ -329,7 +345,11 @@ il vous faudra probablement les include suivants:
 #include "RGB_LED.h"
 #include <ArduinoJson.h>
 ```
+
 ## [Premier de la classe] Testez l'un des autres projets
+
+La commande **Azure IoT Device Workbench: Open Examples** vous permet d'accéder à un ensemble d'exemples préassemblés. Testez-en un, comme par exemple le _DevKit Translator_.
+
 
 [roadshow-twitter]: https://twitter.com/cmaneu/status/1102847594508832768
 [arduino]: https://www.arduino.cc

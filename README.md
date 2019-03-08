@@ -213,6 +213,8 @@ Lorsque vous vous rendez sur l'écran de votre appareil IoT, vuos verrez alors d
 de sécuriser la connexion entre votre appareil et Azure**. Il est important **de ne pas les diffuser ou les mettre dans 
 votre code source (ou repository Github)**. Nous verrons plus tard comment la déployer sur la carte.
 
+> **Notez cette clé d'accès quelque part** ou gardez la fenêtre ouverte, nous allons l'utiliser dans quelques étapes.
+
 Nous en avons pour l'instant fini avec IoT Hub, mais nous reviendrons plus tard sur cette partie.
 
 ### Créer un App Service pour son site web
@@ -246,18 +248,42 @@ ressources, laissez tous les autres paramètres à leurs valeurs par défaut.
 ## Déployez du code sur votre board et connectez-là à Azure
 
 Si vous avez installés tous les prérequis, et que votre board est [connectée à Internet](docs/configurer-wifi.md), alors
- nous pouvons continuer.
+ nous pouvons continuer. Notre première étape est de créer un projet **Azure IoT Workbench Visual Studio Code**. Ce type de projet va nous apporter toutes les fonctionnalités nécessaires pour travailler: builder le code, configurer la carte, déployer le code sur la carte, etc...
+
+ Dans la suite de cet atelier, nous allons utiliser beaucoup de commandes. Celles-ci sont accessibles via le raccourci clavier `Ctrl+Shift+P` (ou `Cmd+Shift+P` sous Mac). Pour créer votre projet: 
+ 
+ 1. Recherchez `Workbench create`, et choisissez `Azure IoT Device Workbench: Create Project`
+ 2. Sélectionnez `IoT DevKit`
+ 3. Selectionnez le template `With Azure IoT Hub`
+ 4. Choisissez un dossier dans lequel enregistrer vos fichiers sources
+
+> Nous allons créer plusieurs projets lors de cet atelier. Je vous suggère la hiérarchie de dossiers suivante : 
+> ```
+> MonProjet
+>  | - device
+>  | - fonction
+>  | - web
+> ```
+> 
+
+![Video - Création d'une Azure Function](docs/media/creation-projetIoT.gif)
+
+Nous pouvons désormais copier-coller le contenu du fichier `.ino` de ce GitHub dans votre projet. A cette étape, il est possible de compiler le code avec la commande `Azure IoT Device Workbench: Compile Device Code`.
+
+Il nous reste désormais deux choses à faire: connecter la board à notre IoT Hub, et déployer le code sur le device. Pour la connection, nous allons simplement envoyer la chaîne de connexion - créée au début du tutoriel - sur la board. Au préalable, assurez-vous que Visual Studio a bien sélectionné votre type de board ainsi que le port série (émulé via l'USB).
+
+![Sélecteur Visual Studio Code de board et de port série](docs/media/vscode-com.jpg)
+
+
+1. Maintenez appuyé le bouton **A** puis appuyez et relâchez le bouton **reset** pour passer en mode configuration
+2. A l'aide de la commande `Azure IoT Device Workbench: Configure Device Settings`, choisissez `Config Device Connection String`, puis `Input IoT Hub Device Connection String`, et collez la connection string complète générée au début de l'atelier.
+
+Nous pouvons maintenant déployer notre code. Toujours à l'aide de la commande de palettes, sélectionnez `Azure IoT Device Workbench: Upload Device Code`.
+L'opération peut prendre quelques minutes. Pendant ce temps-là, la LED "programming" sur la board devrait clignoter. 
 
 > **Vous n'avez pas de MXChip sous la main et vous voulez tout de même tester cela ?**
 > C'est possible, avec [l'émulateur][mx-emulator] ! Copiez-collez le code Arduino dans l'émulateur, indiquez votre 
 >chaîne de connexion à l'IoT Hub et c'est parti.
-
-- Créer un projet VSC IoT Workbench
-- Copier le code du .ino
-- Configurer IoT Hub Connection string et le déployer sur la carte
-- Déployer le code
-- Tester avec le device twin dans le portail
-
 
 ## Créer une interface utilisateur 
 
@@ -267,7 +293,6 @@ A compléter
 
 A compléter
 Dans le fichier `State.cs`, à la ligne 22 remplacez la référence_ChrisMX_ par celle du nom du device IoT créé au début de l'atelier.
-
 
 ## Ajoutez le support du changement de couleur de la LED
 

@@ -37,7 +37,7 @@ Afin de pouvoir développer, puis déployer à la fois sur le board MXChip et su
 - [Visual Studio Code][vscode-home] ainsi que quelques extensions
     - L'extension [Azure IoT tools][vscode-iottoolsext], qui contient notamment _IoT Workbench_,
     - L'extension [Arduino][vscode-arduinoext] de l'éditeur Microsoft,
-    - L'extension [Azure][vscode-azureext],
+    - L'extension [Azure Tools][vscode-azureext],
     - Les extensions pour les langages que vous allez utiliser
         - [C#][vscode-csharpext],
         - JavaScript est déjà inclus :)

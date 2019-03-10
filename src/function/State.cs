@@ -129,7 +129,7 @@ namespace DevKit
             var color = Regex.Split(state, ",");
             var parsedR = int.TryParse(color[0], out var r);
 
-            if (parsedR && parsedG && parsedB)
+            if (parsedR)
             {
                 var patch = new
                 {

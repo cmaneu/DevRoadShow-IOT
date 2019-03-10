@@ -302,7 +302,14 @@ A compléter
 Vous pouvez maintenant copier le code C# de ce repository GitHub dans votre dossier de travail.
 
 Dans le fichier `State.cs`, à la ligne 22, il vous faudra remplacer la référence _ChrisMX_ par celle du nom du device IoT créé au début de l'atelier.
+Le fichier `.csproj` contient des références aux bibliothèques de code nécessaires à la fonction pour s'exécuter. Assurez-vous qu'il contient la référence à `Microsoft.Azure.Devices` comme dans l'extrait suivant : 
 
+```xml
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
+    <PackageReference Include="Microsoft.Azure.Devices" Version="1.17.1" />
+  </ItemGroup>
+```
 Enfin pour déployer le code de votre fonction, faites un clic-droit sur le dossier de votre projet fonction, et cliquez sur **Deploy to Function App**. Vous pourrez alors choisir la souscription, puis l'application fonction que vous aviez créé tout au début. 
 
 ### Le moment de vérité !

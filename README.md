@@ -34,7 +34,7 @@ Afin de réaliser ce workshop, vous aurez besoin:
 Afin de pouvoir développer, puis déployer à la fois sur le board MXChip et sur Azure, il vous faudra plusieurs outils
 (gratuits): 
 
-- [.NET Core 2.2][https://dotnet.microsoft.com/download]
+- [.NET Core 2.2][netcore]
 - [Visual Studio Code][vscode-home] ainsi que quelques extensions
     - L'extension [Azure IoT tools][vscode-iottoolsext], qui contient notamment _IoT Workbench_,
     - L'extension [Arduino][vscode-arduinoext] de l'éditeur Microsoft,
@@ -373,6 +373,7 @@ La commande **Azure IoT Device Workbench: Open Examples** vous permet d'accéder
 
 [roadshow-twitter]: https://twitter.com/cmaneu/status/1102847594508832768
 [arduino]: https://www.arduino.cc
+[netcore]: https://dotnet.microsoft.com/download
 [vscode-home]: https://code.visualstudio.com/?wt.mc_id=devroadshowiot-github-chmaneu
 [azure-home]: https://azure.microsoft.com/fr-fr/?wt.mc_id=devroadshowiot-github-chmaneu
 [mxchip]: https://aka.ms/iot-devkit?wt.mc_id=devroadshowiot-github-chmaneu

@@ -34,6 +34,7 @@ Afin de réaliser ce workshop, vous aurez besoin:
 Afin de pouvoir développer, puis déployer à la fois sur le board MXChip et sur Azure, il vous faudra plusieurs outils
 (gratuits): 
 
+- [.NET Core 2.2][https://dotnet.microsoft.com/download]
 - [Visual Studio Code][vscode-home] ainsi que quelques extensions
     - L'extension [Azure IoT tools][vscode-iottoolsext], qui contient notamment _IoT Workbench_,
     - L'extension [Arduino][vscode-arduinoext] de l'éditeur Microsoft,

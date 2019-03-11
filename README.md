@@ -41,7 +41,7 @@ Afin de pouvoir développer, puis déployer à la fois sur le board MXChip et su
     - Les extensions pour les langages que vous allez utiliser
         - [C#][vscode-csharpext],
         - JavaScript est déjà inclus :)
-- [Arduino IDE][arduino-ide]: il contient les outils de builds et de déploiment pour la carte MXChip
+- [Arduino IDE][arduino-ide]: il contient les outils de builds et de déploiment pour la carte MXChip. **Attention:** Installez la version "standalone", et non pas la version du Store.
 - Le driver _ST-Link_: 
 	* Windows
 	Télécharger et installer le driver depuis le site [STMicro](http://www.st.com/en/development-tools/stsw-link009.html).
@@ -103,6 +103,8 @@ Voici les valeurs par défaut à ajouter à cette configuration:
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
 	```
+
+**Pensez à sauvegarder vos paramètres avant de passer à l'étape suivante !**
 
 Enfin il faudra ajouter le SDK spécifique pour la board Arduino MXChip. Pour cela, via la palette de commande (`Ctrl+Shift+P`
  ou `Cmd+Shif+P`), ouvrir la page **Arduino: Board Manager**, et rechercher **AZ3166**, puis installer la dernière version.

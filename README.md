@@ -37,7 +37,7 @@ Afin de pouvoir développer, puis déployer à la fois sur le board MXChip et su
 - [Visual Studio Code][vscode-home] ainsi que quelques extensions
     - L'extension [Azure IoT tools][vscode-iottoolsext], qui contient notamment _IoT Workbench_,
     - L'extension [Arduino][vscode-arduinoext] de l'éditeur Microsoft,
-    - L'extension [Azure Tools][vscode-azureext],
+    - L'extension [Azure][vscode-azureext],
     - Les extensions pour les langages que vous allez utiliser
         - [C#][vscode-csharpext],
         - JavaScript est déjà inclus :)
@@ -142,6 +142,9 @@ visite et de vous familiariser avec l'interface du portail Azure.
 ![Accueil du portail Azure](docs/media/redeempass-7.jpg)
 
 ## Configurez votre board
+
+Votre board est normalement déjà configurée. Si vous deviez la reconnecter au WiFi, vous trouverez
+[les instructions ici](docs/configurer-wifi.md).
 
 A compléter
 - Connecter au WiFi
@@ -302,15 +305,10 @@ A compléter
 Vous pouvez maintenant copier le code C# de ce repository GitHub dans votre dossier de travail.
 
 Dans le fichier `State.cs`, à la ligne 22, il vous faudra remplacer la référence _ChrisMX_ par celle du nom du device IoT créé au début de l'atelier.
-Le fichier `.csproj` contient des références aux bibliothèques de code nécessaires à la fonction pour s'exécuter. Assurez-vous qu'il contient la référence à `Microsoft.Azure.Devices` comme dans l'extrait suivant : 
 
-```xml
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
-    <PackageReference Include="Microsoft.Azure.Devices" Version="1.17.1" />
-  </ItemGroup>
-```
 Enfin pour déployer le code de votre fonction, faites un clic-droit sur le dossier de votre projet fonction, et cliquez sur **Deploy to Function App**. Vous pourrez alors choisir la souscription, puis l'application fonction que vous aviez créé tout au début. 
+
+Il vous restera une dernière petite chose : faire communiquer votre Azure Function avec l'IoT Hub. Pour se faire, vous devez indiquer la chaîne de connexion à l'IoT Hub à la fonction. Nous allons passer par une variable d'environnement `iotHubConnectionString`, qui est lue par la méthode `Environment.GetEnvironmentVariable`. Nous pouvons faire cela directement via le portail Azure.
 
 ### Le moment de vérité !
 

@@ -311,6 +311,8 @@ Enfin pour déployer le code de votre fonction, faites un clic-droit sur le doss
 
 Il vous restera une dernière petite chose : faire communiquer votre Azure Function avec l'IoT Hub. Pour se faire, vous devez indiquer la chaîne de connexion à l'IoT Hub à la fonction. Nous allons passer par une variable d'environnement `iotHubConnectionString`, qui est lue par la méthode `Environment.GetEnvironmentVariable`. Nous pouvons faire cela directement via le portail Azure.
 
+![Configuration des variables d'environnement dans Azure Function](/docs/medias/envvar-function.gif)
+
 ### Le moment de vérité !
 
 Lancez le fichier index.html qui est dans le dossier `src/web`, puis indiquez le nom de votre IoT Hub. 

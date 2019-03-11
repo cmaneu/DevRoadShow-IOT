@@ -36,9 +36,9 @@ Afin de pouvoir développer, puis déployer à la fois sur le board MXChip et su
 
 - [.NET Core 2.2][netcore]
 - [Visual Studio Code][vscode-home] ainsi que quelques extensions
-    - L'extension [Azure IoT tools][vscode-iottoolsext], qui contient notamment _IoT Workbench_,
+    - L'extension [Azure IoT tools][vscode-iottoolsext] ([Installer](vscode:extension/vsciot-vscode.azure-iot-tools)), qui contient notamment _IoT Workbench_,
     - L'extension [Arduino][vscode-arduinoext] de l'éditeur Microsoft,
-    - L'extension [Azure][vscode-azureext],
+    - L'extension [Azure Tools][vscode-azureext],
     - Les extensions pour les langages que vous allez utiliser
         - [C#][vscode-csharpext],
         - JavaScript est déjà inclus :)
@@ -76,6 +76,8 @@ code --install-extension vsciot-vscode.vscode-arduino
 code --install-extension ms-vscode.vscode-node-azure-pack
 code --install-extension ms-vscode.csharp
 ```
+
+
 
 Une fois l'ensemble de ces composants installés, il faudra s'assurer que Visual Studio Code puisse utiliser l'installation
 d'Arduino. Ouvrir **File > Preference > Settings** et ajouter les lignes suivantes à votre configuration.
@@ -324,6 +326,8 @@ Enfin pour déployer le code de votre fonction, faites un clic-droit sur le doss
 Il vous restera une dernière petite chose : faire communiquer votre Azure Function avec l'IoT Hub. Pour se faire, vous devez indiquer la chaîne de connexion à l'IoT Hub à la fonction. Nous allons passer par une variable d'environnement `iotHubConnectionString`, qui est lue par la méthode `Environment.GetEnvironmentVariable`. Nous pouvons faire cela directement via le portail Azure.
 
 ![Configuration des variables d'environnement dans Azure Function](/docs/media/envvar-function.gif)
+
+**ATTENTION**: Nous parlons ici de la _connection string_ à l'IoT Hub, et non pas celle du Device lui-même ! Vous trouverez cette clé dans le portail Azure, sur votre IoT Hub : allez sur **Shared Access Policy**, puis cliquez sur **iothubowner*.
 
 ### Le moment de vérité !
 

@@ -290,7 +290,8 @@ L'opération peut prendre quelques minutes. Pendant ce temps-là, la LED "progra
 
 ## Créer une interface utilisateur 
 
-A compléter
+Nous l'avons déjà fait pour vous :). 
+> Dans une prochaine version de l'atelier, nous proposerons la création d'une interface utilisateur depuis le début.
 
 ### Créer une Azure Function pour communiquer avec IoT Hub
 

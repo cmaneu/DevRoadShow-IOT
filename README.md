@@ -148,8 +148,7 @@ visite et de vous familiariser avec l'interface du portail Azure.
 Votre board est normalement déjà configurée. Si vous deviez la reconnecter au WiFi, vous trouverez
 [les instructions ici](docs/configurer-wifi.md).
 
-A compléter
-- Connecter au WiFi
+En option :
 - Choisir le port COM dans VSC
 - Utiliser l'émualteur
 

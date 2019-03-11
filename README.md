@@ -307,6 +307,16 @@ Nous l'avons déjà fait pour vous :).
 
 Vous pouvez maintenant copier le code C# de ce repository GitHub dans votre dossier de travail.
 
+Afin que le code fonctionne, nous devons inclure le SDK _Azure Devices_ dans notre projet. Cela s'effectue
+au niveu du fichier `.csproj`. Assurez-vous que vous retrouvez les lignes de code suivantes (la ligne `PackageReference` qui inclut `Microsoft.Azure.Devices`).
+
+```csharp
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
+    <PackageReference Include="Microsoft.Azure.Devices" Version="1.17.1" />
+  </ItemGroup>
+```
+
 Dans le fichier `State.cs`, à la ligne 22, il vous faudra remplacer la référence _ChrisMX_ par celle du nom du device IoT créé au début de l'atelier.
 
 Enfin pour déployer le code de votre fonction, faites un clic-droit sur le dossier de votre projet fonction, et cliquez sur **Deploy to Function App**. Vous pourrez alors choisir la souscription, puis l'application fonction que vous aviez créé tout au début. 

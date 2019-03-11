@@ -148,8 +148,7 @@ visite et de vous familiariser avec l'interface du portail Azure.
 Votre board est normalement déjà configurée. Si vous deviez la reconnecter au WiFi, vous trouverez
 [les instructions ici](docs/configurer-wifi.md).
 
-A compléter
-- Connecter au WiFi
+En option :
 - Choisir le port COM dans VSC
 - Utiliser l'émualteur
 
@@ -327,7 +326,7 @@ Il vous restera une dernière petite chose : faire communiquer votre Azure Funct
 
 ### Le moment de vérité !
 
-Lancez le fichier index.html qui est dans le dossier `src/web`, puis indiquez le nom de votre IoT Hub. 
+Lancez le fichier index.html qui est dans le dossier `src/web`, puis indiquez le nom de votre Azure Function. 
 Si tout se passe bien, vous devriez voir le status de votre carte, et en cliquant sur le bouton "RGB LED", la LED de votre carte devrait s'allumer !
 
 ## Ajoutez le support du changement de couleur de la LED

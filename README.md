@@ -352,7 +352,7 @@ N'hésitez pas à nous appeler à l'aide en cas de soucis !
 
 ## [Etape Bonus] Changez à distance le message
 
-Regardez donc la méthode `DeviceMethodCallback`, c'est elle qui est appelée quand le device reçoit un message du cloud.
+Regardez donc la méthode `DeviceTwinCallback`, c'est elle qui est appelée quand le device reçoit un message du cloud.
 
 
 ## [Etape cachée] Envoyez un dessin à distance

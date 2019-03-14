@@ -323,7 +323,7 @@ Dans le fichier `State.cs`, à la ligne 22, il vous faudra remplacer la référe
 
 Enfin pour déployer le code de votre fonction, faites un clic-droit sur le dossier de votre projet fonction, et cliquez sur **Deploy to Function App**. Vous pourrez alors choisir la souscription, puis l'application fonction que vous aviez créé tout au début. 
 
-Il vous restera une dernière petite chose : faire communiquer votre Azure Function avec l'IoT Hub. Pour se faire, vous devez indiquer la chaîne de connexion à l'IoT Hub à la fonction. Nous allons passer par une variable d'environnement `iotHubConnectionString`, qui est lue par la méthode `Environment.GetEnvironmentVariable`. Nous pouvons faire cela directement via le portail Azure.
+Il vous restera une dernière petite chose : faire communiquer votre Azure Function avec l'IoT Hub. Pour se faire, vous devez indiquer la chaîne de connexion à l'IoT Hub à la fonction. Pour obtenir la chaîne de connexion, vous devez aller dans la section "Stratégie d'accès partagé" et récupérer la chaîne de connexion correspondant au niveau d'autorisation "service". Nous allons stocker la chaîne de connexion dans une variable d'environnement `iotHubConnectionString` au niveau de l'Azure Function, qui est lue par la méthode `Environment.GetEnvironmentVariable`. Nous pouvons faire cela directement via le portail Azure.
 
 ![Configuration des variables d'environnement dans Azure Function](/docs/media/envvar-function.gif)
 
